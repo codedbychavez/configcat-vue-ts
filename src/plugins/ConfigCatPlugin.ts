@@ -1,9 +1,11 @@
+import { provide } from 'vue';
+import type { InjectionKey } from 'vue';
 import * as configcat from 'configcat-common';
 import { HttpConfigFetcher } from './ConfigFetcher';
 import { LocalStorageCache } from './LocalStorageCache';
 import CONFIGCAT_SDK_VERSION from './Version';
 import type { ConfigCatPluginOptions } from '../Types';
-import type { IConfigCatKernel } from 'configcat-common';
+import type { IConfigCatKernel, IConfigCatClient } from 'configcat-common';
 
 import type { App } from 'vue';
 
@@ -26,9 +28,11 @@ export default {
             configCatKernal
         );
 
-        const configCat = { client };
+        const configCatClient = client;
 
-        app.provide('configcat', configCat);
+        const configCat = Symbol() as InjectionKey<IConfigCatClient>
+
+        app.provide(configCat, configCatClient);
 
         const originalAppUnmount = app.unmount;
         app.unmount = function () {

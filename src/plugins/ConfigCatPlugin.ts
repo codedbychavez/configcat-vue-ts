@@ -28,7 +28,7 @@ export default {
 
         const configCat = { client };
 
-        app.config.globalProperties.$configcat = configCat;
+        app.provide('configcat', configCat);
 
         const originalAppUnmount = app.unmount;
         app.unmount = function () {

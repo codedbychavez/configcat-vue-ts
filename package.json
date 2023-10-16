@@ -12,7 +12,6 @@
       "require": "./dist/configcat-vue-ts.umd.cjs"
     }
   },
-  "types": "./dist/configcat-vue-ts.d.ts",
   "version": "1.0.0",
   "description": "A simple and easy to use Vue3 plugin for using ConfigCat Feature Flags in your Vue.js Application",
   "keywords": [

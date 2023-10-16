@@ -7,8 +7,8 @@ export default defineConfig({
   build: {
     lib: {
       entry: new URL('src/index.ts', import.meta.url).pathname,
-      name: 'configcat-vue',
-      fileName: 'configcat-vue',
+      name: 'configcat-vue-ts',
+      fileName: 'configcat-vue-ts',
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

@@ -2181,7 +2181,7 @@ const Mt = { key: 0 }, Vt = { key: 1 }, xt = { key: 2 }, zt = /* @__PURE__ */ Ye
   },
   emits: ["flagValueChanged"],
   setup(t, { emit: e }) {
-    const r = t, n = $e(void 0), i = Xe("configCatClient"), o = () => {
+    const r = t, n = $e(void 0), i = Xe("configCat"), o = () => {
       const s = i == null ? void 0 : i.snapshot(), a = s == null ? void 0 : s.getValue(r.featureKey, !1, r.userObject);
       n.value !== a && (n.value = a, e("flagValueChanged", a));
     };
@@ -2262,20 +2262,20 @@ const Wt = "CONFIGCAT_SDK_VERSION", Bt = {
       sdkType: "ConfigCat-Vue",
       sdkVersion: Wt,
       configFetcher: new jt(),
-      defaultCacheFactory: (u) => new ze(
+      defaultCacheFactory: (l) => new ze(
         new Ht(),
-        u.logger
+        l.logger
       )
     }, s = Ut(
       r,
       n ?? B.AutoPoll,
       i,
       o
-    ), a = s;
-    t.provide("configCatClient", a);
-    const c = t.unmount;
+    ), a = s, c = Symbol("configCat");
+    t.provide(c, a);
+    const u = t.unmount;
     t.unmount = function() {
-      c.apply(arguments), s.dispose();
+      u.apply(arguments), s.dispose();
     };
   }
 };

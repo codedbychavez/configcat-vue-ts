@@ -1,13 +1,14 @@
+import * as configcatcommon from "configcat-common";
 import FeatureWrapper from './components/FeatureWrapper.vue';
 import ConfigCatPlugin from './plugins/ConfigCatPlugin';
 
 import type {
   IAutoPollOptions,
+  IConfigCatLogger,
   ILazyLoadingOptions,
   IManualPollOptions,
+  LogLevel,
 } from "configcat-common";
-
-export { FeatureWrapper, ConfigCatPlugin };
 
 // Options used to configure the ConfigCat SDK in the case of Auto Polling mode.
 export type IVueAutoPollOptions = IAutoPollOptions;
@@ -20,56 +21,51 @@ export type IVueLazyLoadingOptions = ILazyLoadingOptions;
 
 // These exports should be kept in sync with the exports listed in the section "Public types for end users" of common-js/src/index.ts!
 
-export { PollingMode } from "configcat-common";
-
-export type { IOptions } from "configcat-common";
 
 export type {
+  IOptions,
   IAutoPollOptions,
   IManualPollOptions,
   ILazyLoadingOptions,
-} from "configcat-common";
-
-export { DataGovernance } from "configcat-common";
-
-export type { IConfigCatLogger } from "configcat-common";
-
-export type { LogEventId, LogMessage } from "configcat-common";
-
-export { LogLevel } from "configcat-common";
-
-export { FormattableLogMessage } from "configcat-common";
-
-export type { IConfigCatCache } from "configcat-common";
-
-export type {
+  IConfigCatLogger,
+  LogEventId,
+  LogMessage,
+  IConfigCatCache,
   IConfig,
   ISetting,
   ITargetingRule,
   IPercentageOption,
   SettingValue,
   VariationIdValue,
-} from "configcat-common";
-
-export { SettingType, Comparator } from "configcat-common";
-
-export type {
   IConfigCatClient,
   IConfigCatClientSnapshot,
+  IEvaluationDetails,
+  SettingTypeOf,
+  FlagOverrides,
+  IProvidesHooks,
+  HookEvents,
 } from "configcat-common";
 
-export { SettingKeyValue } from "configcat-common";
+export { 
+  PollingMode,
+  DataGovernance,
+  LogLevel,
+  FormattableLogMessage,
+  SettingType,
+  Comparator,
+  SettingKeyValue,
+  User,
+  OverrideBehaviour,
+  RefreshResult,
+  ClientReadyState,
+ } from "configcat-common";
 
-export type { IEvaluationDetails, SettingTypeOf } from "configcat-common";
+ export function createConsoleLogger(logLevel: LogLevel): IConfigCatLogger {
+  return configcatcommon.createConsoleLogger(logLevel);
+ }
 
-export { User } from "configcat-common";
+ export function createFlagOverridesFromMap(map: { [name: string]: NonNullable<configcatcommon.SettingValue>; }, behaviour: configcatcommon.OverrideBehaviour) {
+  return new configcatcommon.FlagOverrides(new configcatcommon.MapOverrideDataSource(map), behaviour);
+}
 
-export type { FlagOverrides } from "configcat-common";
-
-export { OverrideBehaviour } from "configcat-common";
-
-export { RefreshResult } from "configcat-common";
-
-export type { IProvidesHooks, HookEvents } from "configcat-common";
-
-export { ClientReadyState } from "configcat-common";
+export { FeatureWrapper, ConfigCatPlugin };

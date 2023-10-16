@@ -1,18 +1,29 @@
 {
   "name": "configcat-vue-ts",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
+  "version": "1.0.0",
+  "description": "A simple and easy to use Vue3 plugin for using ConfigCat Feature Flags in your Vue.js Application",
+  "keywords": [
+    "configcat",
+    "feature-flags",
+    "feature-toggle",
+    "feature-management",
+    "feature-flag",
+    "configcat vue",
+    "configcat vue3",
+    "feature flags vue",
+    "vite plugin"
+  ],
+  "author": "Chavez Harris",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview"
   },
-  "dependencies": {
-    "configcat-common": "^8.2.0",
-    "vue": "^3.3.4"
-  },
+  "private": false,
+  "type": "module",
   "devDependencies": {
+    "vue": "^3.3.4",
+    "configcat-common": "^8.2.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",

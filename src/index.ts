@@ -1,8 +1,13 @@
+import FeatureWrapper from './components/FeatureWrapper.vue';
+import ConfigCatPlugin from './plugins/ConfigCatPlugin';
+
 import type {
   IAutoPollOptions,
   ILazyLoadingOptions,
   IManualPollOptions,
 } from "configcat-common";
+
+export { FeatureWrapper, ConfigCatPlugin };
 
 // Options used to configure the ConfigCat SDK in the case of Auto Polling mode.
 export type IVueAutoPollOptions = IAutoPollOptions;

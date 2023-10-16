@@ -30,7 +30,7 @@ const props = defineProps<{
 
 const isFeatureFlagEnabled: Ref<undefined | boolean> = ref(undefined);
 
-const configCatClient = inject<IConfigCatClient>("configCatClient");
+const configCatClient = inject<IConfigCatClient>("configCat");
 
 const configChangedHandler = () => {
   const snapshot = configCatClient?.snapshot();

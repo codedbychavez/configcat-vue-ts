@@ -2181,7 +2181,7 @@ const Mt = { key: 0 }, Vt = { key: 1 }, xt = { key: 2 }, zt = /* @__PURE__ */ Ye
   },
   emits: ["flagValueChanged"],
   setup(t, { emit: e }) {
-    const r = t, n = $e(void 0), i = Xe("configCatClient"), o = () => {
+    const r = t, n = $e(void 0), i = Xe("configCat"), o = () => {
       const s = i == null ? void 0 : i.snapshot(), a = s == null ? void 0 : s.getValue(r.featureKey, !1, r.userObject);
       n.value !== a && (n.value = a, e("flagValueChanged", a));
     };
@@ -2271,7 +2271,7 @@ const Wt = "CONFIGCAT_SDK_VERSION", Bt = {
       n ?? B.AutoPoll,
       i,
       o
-    ), a = s, c = Symbol();
+    ), a = s, c = Symbol("configCat");
     t.provide(c, a);
     const u = t.unmount;
     t.unmount = function() {

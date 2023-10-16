@@ -33,7 +33,7 @@ export default {
 
     const configCatClient = client;
 
-    const configCat = Symbol() as InjectionKey<IConfigCatClient>;
+    const configCat = Symbol("configCat") as InjectionKey<IConfigCatClient>;
 
     app.provide(configCat, configCatClient);
 

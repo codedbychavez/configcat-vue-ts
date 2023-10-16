@@ -2262,20 +2262,20 @@ const Wt = "CONFIGCAT_SDK_VERSION", Bt = {
       sdkType: "ConfigCat-Vue",
       sdkVersion: Wt,
       configFetcher: new jt(),
-      defaultCacheFactory: (l) => new ze(
+      defaultCacheFactory: (u) => new ze(
         new Ht(),
-        l.logger
+        u.logger
       )
     }, s = Ut(
       r,
       n ?? B.AutoPoll,
       i,
       o
-    ), a = s, c = Symbol("configCat");
-    t.provide(c, a);
-    const u = t.unmount;
+    ), a = s;
+    t.provide("configCat", a);
+    const c = t.unmount;
     t.unmount = function() {
-      u.apply(arguments), s.dispose();
+      c.apply(arguments), s.dispose();
     };
   }
 };

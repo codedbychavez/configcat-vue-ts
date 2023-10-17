@@ -2,9 +2,6 @@ import FeatureWrapper from './components/FeatureWrapper.vue';
 import ConfigCatPlugin from './plugins/ConfigCatPlugin';
 
 import {
-  IAutoPollOptions,
-  ILazyLoadingOptions,
-  IManualPollOptions,
   SettingValue,
   FlagOverrides,
   MapOverrideDataSource,
@@ -12,17 +9,7 @@ import {
   createConsoleLogger,
 } from "configcat-common";
 
-// Options used to configure the ConfigCat SDK in the case of Auto Polling mode.
-export type IVueAutoPollOptions = IAutoPollOptions;
-
-// Options used to configure the ConfigCat SDK in the case of Manual Polling mode.
-export type IVueManualPollOptions = IManualPollOptions;
-
-// Options used to configure the ConfigCat SDK in the case of Lazy Loading mode.
-export type IVueLazyLoadingOptions = ILazyLoadingOptions;
-
 // These exports should be kept in sync with the exports listed in the section "Public types for end users" of common-js/src/index.ts!
-
 export type {
   IOptions,
   IAutoPollOptions,

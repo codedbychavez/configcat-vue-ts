@@ -796,7 +796,7 @@ var T = (
     }, t.prototype.fetchFailedDueToUnexpectedHttpResponse = function(e, r) {
       return this.log(d.Error, 1101, T.from("STATUS_CODE", "REASON_PHRASE")(Ne || (Ne = A(["Unexpected HTTP response was received while trying to fetch config JSON: ", " ", ""], ["Unexpected HTTP response was received while trying to fetch config JSON: ", " ", ""])), e, r));
     }, t.prototype.fetchFailedDueToRequestTimeout = function(e, r) {
-      return this.log(d.Error, 1102, T.from("TIMEOUT")(Le || (Le = A(["Request timed out while trying to fetch config JSON. Timeout value: ", "ms"], ["Request timed out while trying to fetch config JSON. Timeout value: ", "ms"])), e), r);
+      return this.log(d.Error, 1102, T.from("TIMEOUT")(Re || (Re = A(["Request timed out while trying to fetch config JSON. Timeout value: ", "ms"], ["Request timed out while trying to fetch config JSON. Timeout value: ", "ms"])), e), r);
     }, t.prototype.fetchFailedDueToUnexpectedError = function(e) {
       return this.log(d.Error, 1103, "Unexpected error occurred while trying to fetch config JSON.", e);
     }, t.prototype.fetchFailedDueToRedirectLoop = function() {
@@ -804,7 +804,7 @@ var T = (
     }, t.prototype.fetchReceived200WithInvalidBody = function() {
       return this.log(d.Error, 1105, "Fetching config JSON was successful but the HTTP response content was invalid.");
     }, t.prototype.fetchReceived304WhenLocalCacheIsEmpty = function(e, r) {
-      return this.log(d.Error, 1106, T.from("STATUS_CODE", "REASON_PHRASE")(Re || (Re = A(["Unexpected HTTP response was received when no config JSON is cached locally: ", " ", ""], ["Unexpected HTTP response was received when no config JSON is cached locally: ", " ", ""])), e, r));
+      return this.log(d.Error, 1106, T.from("STATUS_CODE", "REASON_PHRASE")(Le || (Le = A(["Unexpected HTTP response was received when no config JSON is cached locally: ", " ", ""], ["Unexpected HTTP response was received when no config JSON is cached locally: ", " ", ""])), e, r));
     }, t.prototype.settingForVariationIdIsNotPresent = function(e) {
       return this.log(d.Error, 2011, T.from("VARIATION_ID")(De || (De = A(["Could not find the setting for the specified variation ID: '", "'."], ["Could not find the setting for the specified variation ID: '", "'."])), e));
     }, t.prototype.configServiceCacheReadError = function(e) {
@@ -841,7 +841,7 @@ var T = (
       s(this.SOURCE + " - " + a + " - [" + r + "] " + n + c);
     }, t;
   }()
-), Oe, Ae, Te, we, Ie, Ce, Ne, Le, Re, De, Fe, Pe, Ue, ke, Me, Ve;
+), Oe, Ae, Te, we, Ie, Ce, Ne, Re, Le, De, Fe, Pe, Ue, ke, Me, Ve;
 function J(t) {
   return !!t.fn;
 }
@@ -965,7 +965,7 @@ var ct = (
       return !1;
     }, t;
   }()
-), Kt = w, xe = new lt(), ft = (
+), qt = w, xe = new lt(), ft = (
   /** @class */
   function() {
     function t(e) {
@@ -996,23 +996,23 @@ var ct = (
   }()
 );
 function oe(t) {
-  function e(V, L) {
-    var j = V << L | V >>> 32 - L;
+  function e(V, R) {
+    var j = V << R | V >>> 32 - R;
     return j;
   }
   function r(V) {
-    for (var L = "", j, R = 7; R >= 0; R--)
-      j = V >>> R * 4 & 15, L += j.toString(16);
-    return L;
+    for (var R = "", j, L = 7; L >= 0; L--)
+      j = V >>> L * 4 & 15, R += j.toString(16);
+    return R;
   }
   function n(V) {
     V = V.replace(/\r\n/g, `
 `);
-    for (var L = "", j = 0; j < V.length; j++) {
-      var R = V.charCodeAt(j);
-      R < 128 ? L += String.fromCharCode(R) : R > 127 && R < 2048 ? (L += String.fromCharCode(R >> 6 | 192), L += String.fromCharCode(R & 63 | 128)) : (L += String.fromCharCode(R >> 12 | 224), L += String.fromCharCode(R >> 6 & 63 | 128), L += String.fromCharCode(R & 63 | 128));
+    for (var R = "", j = 0; j < V.length; j++) {
+      var L = V.charCodeAt(j);
+      L < 128 ? R += String.fromCharCode(L) : L > 127 && L < 2048 ? (R += String.fromCharCode(L >> 6 | 192), R += String.fromCharCode(L & 63 | 128)) : (R += String.fromCharCode(L >> 12 | 224), R += String.fromCharCode(L >> 6 & 63 | 128), R += String.fromCharCode(L & 63 | 128));
     }
-    return L;
+    return R;
   }
   var i, o, s, a = new Array(80), c = 1732584193, u = 4023233417, l = 2562383102, h = 271733878, p = 3285377520, f, v, y, E, N, U;
   t = n(t);
@@ -1441,9 +1441,9 @@ var ce = (
   return G(t, e, !1) <= 0;
 }, Nt = function(t, e) {
   return G(t, e, !1) > 0;
-}, Lt = function(t, e) {
+}, Rt = function(t, e) {
   return G(t, e, !1) >= 0;
-}, _t = (
+}, Kt = (
   /** @class */
   function() {
     function t(e, r, n, i) {
@@ -1451,7 +1451,7 @@ var ce = (
     }
     return t;
   }()
-), Rt = (
+), Lt = (
   /** @class */
   function() {
     function t(e) {
@@ -1616,7 +1616,7 @@ var ce = (
         case g.SemVerGreaterThan:
           return W(r) == null ? !1 : Nt(e, r);
         case g.SemVerGreaterThanEqual:
-          return W(r) == null ? !1 : Lt(e, r);
+          return W(r) == null ? !1 : Rt(e, r);
       }
       return !1;
     }, t.prototype.getUserAttribute = function(e, r) {
@@ -1800,7 +1800,7 @@ var Pt = (
         throw new Error("Invalid 'configCatKernel' value");
       if (!r.configFetcher)
         throw new Error("Invalid 'configCatKernel.configFetcher' value");
-      e.defaultUser && this.setDefaultUser(e.defaultUser), this.evaluator = new Rt(e.logger), ((i = e.flagOverrides) === null || i === void 0 ? void 0 : i.behaviour) !== P.LocalOnly ? this.configService = e instanceof je ? new st(r.configFetcher, e) : e instanceof He ? new vt(r.configFetcher, e) : e instanceof We ? new pt(r.configFetcher, e) : function() {
+      e.defaultUser && this.setDefaultUser(e.defaultUser), this.evaluator = new Lt(e.logger), ((i = e.flagOverrides) === null || i === void 0 ? void 0 : i.behaviour) !== P.LocalOnly ? this.configService = e instanceof je ? new st(r.configFetcher, e) : e instanceof He ? new vt(r.configFetcher, e) : e instanceof We ? new pt(r.configFetcher, e) : function() {
         throw new Error("Invalid 'options' value");
       }() : this.options.hooks.emit("clientReady", w.HasLocalOverrideFlagDataOnly), this.suppressFinalize = se(this, { sdkKey: e.apiKey, cacheToken: n, configService: this.configService, logger: e.logger });
     }
@@ -2170,10 +2170,10 @@ dt();
 function Ut(t, e, r, n) {
   return be.get(t, e, r, n);
 }
-function kt(t) {
+function _t(t) {
   return new Be(t);
 }
-const Mt = { key: 0 }, Vt = { key: 1 }, xt = { key: 2 }, zt = /* @__PURE__ */ Ye({
+const kt = { key: 0 }, Mt = { key: 1 }, Vt = { key: 2 }, zt = /* @__PURE__ */ Ye({
   __name: "FeatureWrapper",
   props: {
     featureKey: {},
@@ -2181,7 +2181,7 @@ const Mt = { key: 0 }, Vt = { key: 1 }, xt = { key: 2 }, zt = /* @__PURE__ */ Ye
   },
   emits: ["flagValueChanged"],
   setup(t, { emit: e }) {
-    const r = t, n = $e(void 0), i = Xe("configCat"), o = () => {
+    const r = t, n = $e(null), i = Xe("configCatClient"), o = () => {
       const s = i == null ? void 0 : i.snapshot(), a = s == null ? void 0 : s.getValue(r.featureKey, !1, r.userObject);
       n.value !== a && (n.value = a, e("flagValueChanged", a));
     };
@@ -2198,17 +2198,17 @@ const Mt = { key: 0 }, Vt = { key: 1 }, xt = { key: 2 }, zt = /* @__PURE__ */ Ye
     }), Qe(() => {
       i == null || i.off("configChanged", o);
     }), (s, a) => (Q(), ee("div", null, [
-      n.value === !0 ? (Q(), ee("div", Mt, [
+      n.value === !0 ? (Q(), ee("div", kt, [
         ge(s.$slots, "default")
-      ])) : n.value === !1 ? (Q(), ee("div", Vt, [
+      ])) : n.value === !1 ? (Q(), ee("div", Mt, [
         ge(s.$slots, "else")
-      ])) : (Q(), ee("div", xt, [
+      ])) : (Q(), ee("div", Vt, [
         ge(s.$slots, "loading")
       ]))
     ]));
   }
 });
-class jt {
+class xt {
   handleStateChange(e, r, n) {
     try {
       if (e.readyState === 4) {
@@ -2240,7 +2240,7 @@ class jt {
     });
   }
 }
-class Ht {
+class jt {
   set(e, r) {
     try {
       localStorage.setItem(e, btoa(r));
@@ -2256,37 +2256,34 @@ class Ht {
     }
   }
 }
-const Wt = "CONFIGCAT_SDK_VERSION", Bt = {
+const Ht = "CONFIGCAT_SDK_VERSION", Bt = {
   install: (t, e) => {
     const { sdkKey: r, pollingMode: n, clientOptions: i } = e, o = {
       sdkType: "ConfigCat-Vue",
-      sdkVersion: Wt,
-      configFetcher: new jt(),
-      defaultCacheFactory: (u) => new ze(
-        new Ht(),
-        u.logger
+      sdkVersion: Ht,
+      configFetcher: new xt(),
+      defaultCacheFactory: (c) => new ze(
+        new jt(),
+        c.logger
       )
     }, s = Ut(
       r,
       n ?? B.AutoPoll,
       i,
       o
-    ), a = s;
-    t.provide("configCat", a);
-    const c = t.unmount;
+    );
+    t.provide("configCatClient", s);
+    const a = t.unmount;
     t.unmount = function() {
-      c.apply(arguments), s.dispose();
+      a.apply(arguments), s.dispose();
     };
   }
 };
-function Gt(t) {
-  return kt(t);
-}
-function Jt(t, e) {
+function Gt(t, e) {
   return new gt(new ht(t), e);
 }
 export {
-  Kt as ClientReadyState,
+  qt as ClientReadyState,
   g as Comparator,
   Bt as ConfigCatPlugin,
   ue as DataGovernance,
@@ -2298,7 +2295,7 @@ export {
   ae as RefreshResult,
   ne as SettingKeyValue,
   Se as SettingType,
-  _t as User,
-  Gt as createConsoleLogger,
-  Jt as createFlagOverridesFromMap
+  Kt as User,
+  _t as createConsoleLogger,
+  Gt as createFlagOverridesFromMap
 };

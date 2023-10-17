@@ -31,7 +31,7 @@ export default {
 
     const configCatClient = client;
 
-    app.provide("configCat", configCatClient);
+    app.provide("configCatClient", configCatClient);
 
     const originalAppUnmount = app.unmount;
     app.unmount = function () {

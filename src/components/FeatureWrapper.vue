@@ -28,9 +28,9 @@ const props = defineProps<{
   userObject?: User;
 }>();
 
-const isFeatureFlagEnabled: Ref<undefined | boolean> = ref(undefined);
+const isFeatureFlagEnabled: Ref<null | boolean> = ref(null);
 
-const configCatClient = inject('configCat') as IConfigCatClient;
+const configCatClient = inject("configCatClient") as IConfigCatClient;
 
 const configChangedHandler = () => {
   const snapshot = configCatClient?.snapshot();

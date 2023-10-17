@@ -1,13 +1,15 @@
-import * as configcatcommon from "configcat-common";
 import FeatureWrapper from './components/FeatureWrapper.vue';
 import ConfigCatPlugin from './plugins/ConfigCatPlugin';
 
-import type {
+import {
   IAutoPollOptions,
-  IConfigCatLogger,
   ILazyLoadingOptions,
   IManualPollOptions,
-  LogLevel,
+  SettingValue,
+  FlagOverrides,
+  MapOverrideDataSource,
+  OverrideBehaviour,
+  createConsoleLogger,
 } from "configcat-common";
 
 // Options used to configure the ConfigCat SDK in the case of Auto Polling mode.
@@ -20,7 +22,6 @@ export type IVueManualPollOptions = IManualPollOptions;
 export type IVueLazyLoadingOptions = ILazyLoadingOptions;
 
 // These exports should be kept in sync with the exports listed in the section "Public types for end users" of common-js/src/index.ts!
-
 
 export type {
   IOptions,
@@ -60,12 +61,8 @@ export {
   ClientReadyState,
  } from "configcat-common";
 
- export function createConsoleLogger(logLevel: LogLevel): IConfigCatLogger {
-  return configcatcommon.createConsoleLogger(logLevel);
- }
-
- export function createFlagOverridesFromMap(map: { [name: string]: NonNullable<configcatcommon.SettingValue>; }, behaviour: configcatcommon.OverrideBehaviour) {
-  return new configcatcommon.FlagOverrides(new configcatcommon.MapOverrideDataSource(map), behaviour);
+ export function createFlagOverridesFromMap(map: { [name: string]: NonNullable<SettingValue>; }, behaviour: OverrideBehaviour) {
+  return new FlagOverrides(new MapOverrideDataSource(map), behaviour);
 }
 
-export { FeatureWrapper, ConfigCatPlugin };
+export { FeatureWrapper, ConfigCatPlugin, createConsoleLogger };

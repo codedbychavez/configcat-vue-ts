@@ -6,9 +6,9 @@
   ],
   "main": "./dist/configcat-vue-ts.umd.cjs",
   "module": "./dist/config-vue-ts.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/configcat-vue-ts.js",
       "require": "./dist/configcat-vue-ts.umd.cjs"
     }

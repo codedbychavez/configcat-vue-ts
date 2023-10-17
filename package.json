@@ -8,9 +8,14 @@
   "module": "./dist/config-vue-ts.js",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/configcat-vue-ts.js",
-      "require": "./dist/configcat-vue-ts.umd.cjs"
+      "import": {
+        "default": "./dist/configcat-vue-ts.js",
+        "types": "./dist/index.d.ts"
+      },
+      "require": {
+        "default": "./dist/configcat-vue-ts.umd.cjs",
+        "types": "./dist/index.d.ts"
+      }
     }
   },
   "version": "1.0.0",

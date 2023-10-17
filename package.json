@@ -8,10 +8,7 @@
   "module": "./dist/config-vue-ts.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/configcat-vue-ts.js",
-      "require": "./dist/configcat-vue-ts.umd.cjs"
-    }
+    ".": "./dist/configcat-vue-ts.js"
   },
   "version": "1.0.0",
   "description": "A simple and easy to use Vue3 plugin for using ConfigCat Feature Flags in your Vue.js Application",

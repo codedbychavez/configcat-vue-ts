@@ -1,12 +1,14 @@
-import { defineConfig } from 'vite'
-import injectVersion from './RollupPluginInjectVersion'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
+import injectVersion from './RollupPluginInjectVersion';
 import vue from '@vitejs/plugin-vue'
+import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   build: {
     lib: {
-      entry: new URL('src/index.ts', import.meta.url).pathname,
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'configcat-vue-ts',
       fileName: 'configcat-vue-ts',
     },
@@ -23,5 +25,5 @@ export default defineConfig({
       }
     }
   },
-  plugins: [injectVersion(), vue()],
+  plugins: [injectVersion(), vue(), dts()],
 });

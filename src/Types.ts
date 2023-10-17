@@ -1,17 +1,14 @@
-import { PollingMode } from "configcat-common";
 import {
-  IVueAutoPollOptions,
-  IVueLazyLoadingOptions,
-  IVueManualPollOptions,
-} from ".";
+  PollingMode,
+  IAutoPollOptions,
+  ILazyLoadingOptions,
+  IManualPollOptions,
+} from "configcat-common";
 
-type ConfigCatPluginOptions = {
+type PluginOptions = {
   sdkKey: string;
   pollingMode?: PollingMode;
-  clientOptions:
-    | IVueAutoPollOptions
-    | IVueManualPollOptions
-    | IVueLazyLoadingOptions;
+  clientOptions: IAutoPollOptions | IManualPollOptions | ILazyLoadingOptions;
 };
 
-export type { ConfigCatPluginOptions };
+export type { PluginOptions };

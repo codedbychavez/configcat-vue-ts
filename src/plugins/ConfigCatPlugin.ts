@@ -1,18 +1,17 @@
 import * as configcat from "configcat-common";
 import { HttpConfigFetcher } from "./ConfigFetcher";
 import { LocalStorageCache } from "./LocalStorageCache";
-import CONFIGCAT_SDK_VERSION from "./Version";
-import type { ConfigCatPluginOptions } from "../Types";
-import type { IConfigCatKernel } from "configcat-common";
-
-import type { App } from "vue";
-
 import { PollingMode } from "configcat-common";
+import CONFIGCAT_SDK_VERSION from "./Version";
+// Types
+import type { App } from "vue";
+import type { IConfigCatKernel } from "configcat-common";
+import type { ConfigCatPluginOptions } from "../Types";
 
 export default {
   install: (app: App, options: ConfigCatPluginOptions): void => {
     const { sdkKey, pollingMode, clientOptions } = options;
-    const configCatKernal: IConfigCatKernel = {
+    const configCatKernel: IConfigCatKernel = {
       sdkType: "ConfigCat-Vue",
       sdkVersion: CONFIGCAT_SDK_VERSION,
       configFetcher: new HttpConfigFetcher(),
@@ -27,14 +26,12 @@ export default {
       sdkKey,
       pollingMode ?? PollingMode.AutoPoll,
       clientOptions,
-      configCatKernal
+      configCatKernel
     );
 
     const configCatClient = client;
 
-    // const configCat = Symbol("configCat") as InjectionKey<IConfigCatClient>;
-
-    app.provide('configCat', configCatClient);
+    app.provide("configCatClient", configCatClient);
 
     const originalAppUnmount = app.unmount;
     app.unmount = function () {

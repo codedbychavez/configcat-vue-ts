@@ -2,6 +2,6 @@ import { PollingMode, IAutoPollOptions, ILazyLoadingOptions, IManualPollOptions 
 type PluginOptions = {
     sdkKey: string;
     pollingMode?: PollingMode;
-    clientOptions: IAutoPollOptions | IManualPollOptions | ILazyLoadingOptions;
+    clientOptions?: IAutoPollOptions | IManualPollOptions | ILazyLoadingOptions;
 };
 export type { PluginOptions };
